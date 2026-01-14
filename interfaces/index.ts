@@ -1,23 +1,22 @@
-export interface AddressProps {
-	state: string;
-	city: string;
-	country: string;
+export interface Address {
+  state: string;
+  city: string;
+  country: string;
 }
 
-export interface OfferProps {
-	bed: string;
-	shower: string;
-	occupants: string;
+export interface Offers {
+  bed: string;
+  shower: string;
+  occupants: string;
 }
 
 export interface PropertyProps {
-	id: number;
-	name: string;
-	address: AddressProps;
-	rating: number;
-	category: string[];
-	price: number;
-	offers: OfferProps;
-	image: string;
-	discount: string;
+  name: string;
+  address: Address;
+  rating: number;
+  category: string[];
+  price: number;
+  offers: Offers;
+  image: string;
+  discount?: string;
 }

@@ -1,8 +1,17 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const ReviewSection = ({ propertyId }) => {
-  const [reviews, setReviews] = useState([]);
+interface Review {
+  id: number;
+  comment: string;
+}
+
+interface Props {
+  propertyId: number;
+}
+
+const ReviewSection: React.FC<Props> = ({ propertyId }) => {
+  const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,9 +29,7 @@ const ReviewSection = ({ propertyId }) => {
     fetchReviews();
   }, [propertyId]);
 
-  if (loading) {
-    return <p>Loading reviews...</p>;
-  }
+  if (loading) return <p>Loading reviews...</p>;
 
   return (
     <div>
