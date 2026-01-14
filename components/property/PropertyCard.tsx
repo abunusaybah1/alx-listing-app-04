@@ -1,15 +1,18 @@
 import { PropertyProps } from "@/interfaces";
 import Image from "next/image";
 
-const PropertyCard: React.FC<PropertyProps> = ({
-	image,
-	name,
-	price,
-	rating,
-}) => {
+const PropertyCard: React.FC<{ property: PropertyProps }> = ({ property }) => {
+	const { image, name, price, rating } = property;
+
 	return (
 		<div className="rounded-lg shadow-md overflow-hidden bg-white">
-			<Image alt="" src={image} className="w-full h-48 object-cover" />
+			<Image
+				alt={name}
+				src={image}
+				width={400}
+				height={300}
+				className="w-full h-48 object-cover"
+			/>
 
 			<div className="p-4">
 				<h3 className="font-bold text-lg">{name}</h3>
